@@ -23,8 +23,8 @@ const newUserBtn = document.querySelector(".newUserBtn");
 //sparade användare
 const myArray = [
     {
-        userName: "7",
-        passWord: "8",
+        userName: "1",
+        passWord: "2",
     },
     
     {
