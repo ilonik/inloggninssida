@@ -131,6 +131,7 @@ function loginSuccessUI() {
     form.style.display= "none";
     loginBtn.style.display = "none";
     logoutBtn.style.display = "inline";
+    newUserBtn.style.display = "none";
 }
 
 // vid fail password ska detta ske
