@@ -12,6 +12,14 @@ const inputCreateUser = document.querySelector(".inputCreateUser");
 const inputCreatePassword = document.querySelector(".inputCreatePassword");
 const newUserBtn = document.querySelector(".newUserBtn");
 
+//vi kör nedan funkton så fort man kommer in på sidan för att känna av statusen på sidan i form av om någon är inloggad eller inte
+function init () {
+    if (localStorage.getItem("loggedIn"))
+    loginSuccessUI()
+
+}
+
+init();
 
 //sparade användare
 const myArray = [
@@ -31,13 +39,14 @@ const myArray = [
 ]
 
 
-// Om inte getItem finns så vill vi setItem ska köras. På detta sätt undviker vi att listan uppdateras och ersätts hela tiden. 
+// Om inte getItem finns så vill vi setItem ska köras. På detta sätt undviker vi att listan uppdateras och ersätts hela tiden med sig själv. 
 if (!localStorage.getItem("myList")) { 
 
 localStorage.setItem("myList", JSON.stringify(myArray))
 
 }
 
+//kolla local storage om någon är inloggad och är någon det ska vläkomstsidan finnas och inte logga in sidan
 
 // eventListener för knapparna. Vid click ska detta hända. CheckPassword osv har fått funktioner längre ner
 loginBtn.addEventListener("click", checkPassword)
@@ -93,16 +102,29 @@ function checkPassword(){
     for (const user of listFromStorage) 
     if (input1.value === user.userName && input2.value === user.passWord)  {
         loginSuccessUI()
+
+        localStorage.setItem("loggedIn", user.userName);
+    
+        //Password delen är jävligt oklar
+        //Den ska tas bort när man loggar ut 
+        
+        
+        //vem är det som har loggat in? då vill vi att den inloggen ska sparas som en ny nyckel/key. När vi laddar sidan vill vi att sidan ska kontrollera om nyckekln finns. Finns den så kan vi visa välkomstsidan. om nej visar den inkomstsidan. vid logga ut kan vi ta bort den nyckeln. INTE mylist för viv ill kunna logga in senare.
     return
  }
     loginFailUI()
 };
 
+
 //myList jobbar jag inte med de bara datajag skickar in och ut saker
+
+
+
+
 
 // vid correct password ska detta ske
 function loginSuccessUI() {
-    welcomeText.innerText = "så jävla bra, du är inloggad"
+    welcomeText.innerText = "så jävla bra, du är inloggad " + input1.value 
     input1.value ="";
     input2.value ="";
     form.style.display= "none";
@@ -112,7 +134,7 @@ function loginSuccessUI() {
 
 // vid fail password ska detta ske
 function loginFailUI() {
-    welcomeText.innerText = "försök igen din lilla skit"
+    welcomeText.innerText = welcomeText.innerText = (Mylist)
     input1.value ="";
     input2.value ="";
 }
@@ -123,6 +145,7 @@ function logout() {
     welcomeText.innerText = "Vill du logga in igen?"
     logoutBtn.style.display = "none";
     loginBtn.style.display ="inline";
+    localStorage.removeItem("loggedIn");
 };
 
 
