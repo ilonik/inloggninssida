@@ -146,6 +146,7 @@ function logout() {
     welcomeText.innerText = "Vill du logga in igen?"
     logoutBtn.style.display = "none";
     loginBtn.style.display ="inline";
+    loginBtn.style.display = "inline"
     localStorage.removeItem("loggedIn");
 };
 
