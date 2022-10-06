@@ -18,5 +18,5 @@ lösenord:       2
 användarnamn:   3
 lösenord:       4
 
-användarnamn:   5 
-lösenord:       6
+användarnamn:   fredrik 
+lösenord:       12345

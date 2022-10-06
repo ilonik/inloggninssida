@@ -1,3 +1,14 @@
 .logoutBtn{
     display: none;
 }
+
+.inputCreateUser {
+    display: none;
+}
+.inputCreatePassword {
+    display: none;
+}
+
+.newUserBtn{
+    display: none;
+}
