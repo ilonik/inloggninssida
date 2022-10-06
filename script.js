@@ -44,6 +44,7 @@ if (!localStorage.getItem("myList")) {
 
 localStorage.setItem("myList", JSON.stringify(myArray))
 
+
 }
 
 //kolla local storage om någon är inloggad och är någon det ska vläkomstsidan finnas och inte logga in sidan
@@ -124,6 +125,7 @@ function checkPassword(){
 
 // vid correct password ska detta ske
 function loginSuccessUI() {
+    //welcomeText.innerText = "så jävla bra, du är inloggad " + input1.value 
     welcomeText.innerText = "så jävla bra, du är inloggad " + input1.value 
     input1.value ="";
     input2.value ="";
@@ -134,7 +136,7 @@ function loginSuccessUI() {
 
 // vid fail password ska detta ske
 function loginFailUI() {
-    welcomeText.innerText = welcomeText.innerText = (Mylist)
+    welcomeText.innerText = "halllååå, skriv rätt dååå";
     input1.value ="";
     input2.value ="";
 }
