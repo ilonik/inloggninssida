@@ -36,14 +36,13 @@ const myArray = [
         userName: "fredrik",
         passWord: "12345",
     }   
-]
+];
 
 
 // Om inte getItem finns så vill vi setItem ska köras. På detta sätt undviker vi att listan uppdateras och ersätts hela tiden med sig själv. 
 if (!localStorage.getItem("myList")) { 
 
 localStorage.setItem("myList", JSON.stringify(myArray))
-
 
 }
 
@@ -152,3 +151,4 @@ function logout() {
 
 
 
+//test
