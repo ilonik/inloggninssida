@@ -15,7 +15,7 @@ const newUserBtn = document.querySelector(".newUserBtn");
 //vi kör nedan funkton så fort man kommer in på sidan för att känna av statusen på sidan i form av om någon är inloggad eller inte
 function init () {
     if (localStorage.getItem("loggedIn"))
-    loginSuccessUI()
+    loginSuccessUI(JSON.parse(localStorage.getItem("loggedIn")))
 
 }
 
@@ -101,10 +101,10 @@ function checkPassword(){
     //vi vill att den kollar den Uppdaterade listan
     for (const user of listFromStorage) 
     if (input1.value === user.userName && input2.value === user.passWord)  {
-        loginSuccessUI()
+        
 
-        localStorage.setItem("loggedIn", user.userName);
-    
+        localStorage.setItem("loggedIn", JSON.stringify(user.userName));
+        loginSuccessUI(JSON.parse(localStorage.getItem("loggedIn")))
         //Password delen är jävligt oklar
         //Den ska tas bort när man loggar ut 
         
@@ -123,9 +123,9 @@ function checkPassword(){
 
 
 // vid correct password ska detta ske
-function loginSuccessUI() {
+function loginSuccessUI(theName) {
     //welcomeText.innerText = "så jävla bra, du är inloggad " + input1.value 
-    welcomeText.innerText = "så jävla bra, du är inloggad " + input1.value 
+    welcomeText.innerText = "så jävla bra, du är inloggad " + theName
     input1.value ="";
     input2.value ="";
     form.style.display= "none";
