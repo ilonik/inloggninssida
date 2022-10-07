@@ -84,6 +84,7 @@ function creating() {
     loginBtn.style.display ="inline"; 
     form2.style.display = "none";
     localStorage.setItem("myList", JSON.stringify(listFromStorage))
+    
     //här skickar vi in listan igen
 }; 
 
@@ -132,6 +133,7 @@ function loginSuccessUI(theName) {
     loginBtn.style.display = "none";
     logoutBtn.style.display = "inline";
     newUserBtn.style.display = "none";
+    areYouNewBtn.style.display = "none";
 }
 
 // vid fail password ska detta ske
@@ -147,10 +149,8 @@ function logout() {
     welcomeText.innerText = "Vill du logga in igen?"
     logoutBtn.style.display = "none";
     loginBtn.style.display ="inline";
-    loginBtn.style.display = "inline"
+    areYouNewBtn.style.display = "inline";
     localStorage.removeItem("loggedIn");
+
 };
 
-
-
-//test
